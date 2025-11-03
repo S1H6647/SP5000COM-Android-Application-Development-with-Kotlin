@@ -1,5 +1,7 @@
 package week1.tasks
 
+import java.util.*
+
 fun main() {
     val dictionary = mapOf(
         "abundance" to "a very large quantity of something",
@@ -55,11 +57,25 @@ fun main() {
         "zealous"
     )
 
-    println("----- Welcome to the Dictionary App -----")
-
+    println("\n----- Welcome to the Dictionary App -----")
     println(wordList)
+    val scanner = Scanner(System.`in`)
 
-    print("Enter a word you want to know the meaning of: ")
-    val userInput: String = readln()
-    println("The meaning of $userInput is ${dictionary[userInput]}")
+    while (true) {
+        print("Enter a word you want to know the meaning of (or 'exit' to quit): ")
+        val userInput: String = scanner.next().lowercase()
+
+        if (userInput == "exit" || userInput == "quit") {
+            println("Thank you for using the Dictionary App!")
+            break
+        }
+
+        val meaning = dictionary[userInput]
+
+        if (meaning != null) {
+            println("The meaning of $userInput is ${dictionary[userInput]}")
+        } else {
+            println("Word not found! Please enter the word from above!")
+        }
+    }
 }
