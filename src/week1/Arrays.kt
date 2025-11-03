@@ -5,6 +5,7 @@ fun main() {
     println(fruits[3])
     fruits[3] = "strawberry"
     println(fruits[3])
+    println(fruits.toList())
 
     // ArrayList
     val vegetable = ArrayList<String>()
